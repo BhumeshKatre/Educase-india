@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+body{
+  background-color: #e5e4ed;
+  box-sizing: border-box;
+}
