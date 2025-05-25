@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
+import { Link } from "react-router-dom";
 
 const inputStyles = {
   "& label": { color: "#897bed" },
@@ -24,19 +25,20 @@ const SignUp = () => {
     isAgency: false,
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //   }));
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    window.location.href = "/home";
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Form submitted:", formData);
+  //   window.location.href = "/home"; 
+
+  // };
 
   return (
     <div
@@ -53,7 +55,7 @@ const SignUp = () => {
           {inputField.map((field, index) => (
             <div key={index} className="mt-4  ">
               <TextField
-                onChange={handleInputChange}
+                // onChange={handleInputChange}
                 required
                 id="outlined-required"
                 label={field.label}
@@ -90,12 +92,12 @@ const SignUp = () => {
 
       <div>
         {/* create </button> */}
-        <button
-          onClick={handleSubmit}
-          className="p-2 w-full  text-white font-semibold bg-blue-800 rounded-md text-center"
+        <Link
+          to="/home"
+          className="p-2 w-full block   text-white font-semibold bg-blue-800 rounded-md text-center"
         >
           Create Account
-        </button>
+        </Link>
       </div>
     </div>
   );
