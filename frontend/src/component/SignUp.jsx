@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 
 const inputStyles = {
@@ -14,6 +14,30 @@ const SignUp = () => {
     { label: "Password", defaultValue: "Marry Doe" },
     { label: "Company Name", defaultValue: "Marry Doe" },
   ];
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phoneNumber: "",
+    emailAddress: "",
+    password: "",
+    companyName: "",
+    isAgency: false,
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    window.location.href = "/home";
+  };
+
   return (
     <div
       style={{ height: "calc(100vh - 48px)" }}
@@ -27,12 +51,13 @@ const SignUp = () => {
 
         <form className="mt-2 " action="">
           {inputField.map((field, index) => (
-            <div className="mt-4  ">
+            <div key={index} className="mt-4  ">
               <TextField
+                onChange={handleInputChange}
                 required
                 id="outlined-required"
                 label={field.label}
-                defaultValue="Marry doe "
+                defaultValue="Marry doe"
                 sx={inputStyles}
                 className="w-full"
               />
@@ -65,7 +90,10 @@ const SignUp = () => {
 
       <div>
         {/* create </button> */}
-        <button className="p-2 w-full  text-white font-semibold bg-blue-800 rounded-md text-center">
+        <button
+          onClick={handleSubmit}
+          className="p-2 w-full  text-white font-semibold bg-blue-800 rounded-md text-center"
+        >
           Create Account
         </button>
       </div>
