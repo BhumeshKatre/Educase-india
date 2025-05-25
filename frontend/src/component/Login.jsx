@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TextField } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const inputStyles = {
   "& label": { color: "#897bed" },
@@ -27,8 +28,8 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData); // For debugging
-    window.location.href = "/home"; // Simulate navigation
+    console.log(formData); 
+    window.location.href = "/home"; 
   };
 
   return (
@@ -57,12 +58,12 @@ const Login = () => {
           </div>
         ))}
 
-        <button
-          type="submit"
+        <Link
+          to="/home"
           className="bg-gray-300 w-full p-2 mt-4 hover:bg-gray-500 text-white"
         >
           Login
-        </button>
+        </Link>
       </form>
     </div>
   );
