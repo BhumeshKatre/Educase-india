@@ -60,7 +60,7 @@ const Login = () => {
 
         <Link
           to="/home"
-          className="bg-gray-300 block  w-full p-2 mt-4 hover:bg-gray-500 text-white"
+          className="bg-gray-300 block text-center w-full p-2 mt-4 hover:bg-gray-500 text-white"
         >
           Login
         </Link>
